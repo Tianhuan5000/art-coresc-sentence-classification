@@ -64,3 +64,14 @@ Each feature group uses its own prefix so that groups never collide.
 | `hedge=` | Hedging cues (e.g., *may*, *might*, *suggest*, *likely*) |
 | `len=` | Sentence length bin |
 | `prev_w=`, `next_w=` | Unigrams of the previous and next sentence |
+
+## References
+ 
+- Liakata, M. and Soldatova, L. (2009). The ART Corpus. Technical report, Aberystwyth University.
+- Liakata, M., Teufel, S., Siddharthan, A. and Batchelor, C. (2010). Corpora for the
+  conceptualisation and zoning of scientific papers. In *Proceedings of LREC 2010*.
+- Liakata, M., Saha, S., Dobnik, S., Batchelor, C. and Rebholz-Schuhmann, D. (2012).
+  Automatic recognition of conceptualization zones in scientific articles and two life science
+  applications. *Bioinformatics* 28(7), 991–1000.
+The ART corpus is distributed under the Creative Commons Attribution Non-Commercial 3.0
+license (CC BY-NC 3.0).
