@@ -47,3 +47,20 @@ experts. The papers are split evenly among 9 annotators (25 papers each). See
 | Train | 153 | TBD |
 | Dev | 36 | TBD |
 | Test | 36 | TBD |
+
+## Features
+ 
+Each feature group uses its own prefix so that groups never collide.
+ 
+| Prefix | Feature group |
+|---|---|
+| `w=` | Lowercased unigrams in the sentence |
+| `bi=` | Bigrams in the sentence |
+| `sec=` | Region (title / abstract / body) and normalized section heading |
+| `pos=` | Relative position of the sentence in the paper (10 bins) |
+| `cite=` | Number of citations (0 / 1 / 2+) |
+| `fig=` | Whether the sentence references a figure or table |
+| `chem=` | Subscript/superscript markup and word shapes of tokens with digits |
+| `hedge=` | Hedging cues (e.g., *may*, *might*, *suggest*, *likely*) |
+| `len=` | Sentence length bin |
+| `prev_w=`, `next_w=` | Unigrams of the previous and next sentence |
