@@ -1,3 +1,4 @@
+# COSI 114a Final Project, Fall 2026
 This project builds classifiers that read a single sentence from a research paper and
 predict its **scientific role**: is the sentence giving background, stating a hypothesis,
 describing an experiment, presenting a model, or reporting a result? A particular focus is
