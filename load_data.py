@@ -6,7 +6,7 @@ from collections import Counter
 from pathlib import Path
 import xml.etree.ElementTree as ET
 
-CORPUS_DIR = Path('ART_Corpus')
+CORPUS_DIR = Path('data/ART_Corpus')
 OUT_PATH = Path('sentences.jsonl')
 
 def xml_to_sentences (xml_path: Path):
@@ -25,7 +25,7 @@ def xml_to_sentences (xml_path: Path):
     header = "" #the closest header
     out = []
 
-    #trverse all elements, recording while it goes
+    #traverse all elements, recording while it goes
     for el in root.iter():
         if el.tag == "TITLE":
             region = "title"
@@ -101,7 +101,7 @@ def main():
     for xml_path in xml_files:
         all_records.extend(xml_to_sentences(xml_path))
 
-    with OUT_PATH.open("w") as f:
+    with OUT_PATH.open("w", encoding= "utf-8") as f:
         for r in all_records:
             ordered = {
                 "paper": r["paper"],

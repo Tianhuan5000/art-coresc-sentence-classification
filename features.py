@@ -27,6 +27,7 @@ import json
 import re
 from pathlib import Path
 
+from numpy.ma.core import shape
 
 SENT_PATH = Path("sentences.jsonl")
 
@@ -38,7 +39,7 @@ SENT_PATH = Path("sentences.jsonl")
 #   - any other non-space char as its own token (punctuation)
 # The step-1 output already has punctuation spaced out, but this works
 # either way, so we don't depend on that property.
-_TOKEN_RE = re.compile(r"[A-Za-z]+(?:['\u2019][A-Za-z]+)*|\d+(?:\.\d+)?|[^\s]")
+_TOKEN_RE = re.compile(r"[a-zA-Z0-9]+(?:['\u2019\.][a-zA-Z0-9]+)*|[^\s]")
 
 
 def tokenize(text: str):
@@ -81,6 +82,16 @@ FEATURE_GROUPS = {
 }
 
 DEFAULT_OPTS = frozenset({"w"})
+
+
+
+def feature_chem(rec, prev, next_):
+    feats = {}
+    for tok in tokenize(rec["text"]):
+        if any(c.isdigit() for c in tok):
+            shape = "".join("d" if c.isdigit() else "x" if c.isalpha() else c for c in tok)
+            feats[f"shape={shape}"] = 1.0
+    return feats
 
 
 # ---------------------------------------------------------------- entry point
